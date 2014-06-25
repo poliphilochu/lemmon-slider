@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+
+	<title>Carousel With Variable Elements Widths | Lemmon jQuery</title>
+
+	<meta name="generator" content="TextMate http://macromates.com/">
+	<meta name="author" content="Jakub Pelák">
+
+	<meta name="robots" content="index, follow">
+
+	<!--<script src="http://static.lemmonjuice.com/public/jquery/jquery-1.6.min.js"></script>-->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<style type="text/css" media="screen">
+	.wrap { width:640px; margin:20px; background:#ffc; }
+	body div.slider    { overflow:hidden; position:relative; width:100%; height:370px !important; }
+	body div.slider ul { margin:0; padding:0; height:370px; }
+	body div.slider li { float:left; list-style:none; margin:0 5px 0 0; }
+	body div.slider li { text-align:center; line-height:370px; font-size:25px; }
+	body div.slider li { background: #555; color: #fff; width: 335px; }
+	body div.slider .active { background: #ffcccc; }
+	.des-wrapper {
+		width: 960px;
+		margin: 0 auto;
+		height: 150px;
+		background: #fff;
+		padding: 50px;
+	}
+	.des-inner {
+
+	}
+	.des {
+		display: none;
+
+		padding: 25px;
+		background: #f2f2f2;
+	}
+	</style>
+</head>
+
+<body>
+
+<h1>Slider Demo</h1>
+
+<div class="des-wrapper">
+	<div class="des"><div class="des-inner"></div></div>
+</div>
+<div class="slider-wrap">
+		<div id="slider3" class="slider">
+			<ul>
+				<li><div class="dec">t1</div><div class="img">t1</div></li>
+				<li><div class="dec">t2</div><div class="img">t2</div></li>
+				<li><div class="dec">t3</div><div class="img">t3</div></li>
+				<li><div class="dec">t4</div><div class="img">t4</div></li>
+				<li><div class="dec">t5</div><div class="img">t5</div></li>
+				<li><div class="dec">t6</div><div class="img">t6</div></li>
+				<li><div class="dec">t7</div><div class="img">t7</div></li>
+			</ul>
+		</div>
+		<div class="controls">
+			<a href="#" class="prev-slide">Prev Slide</a> |
+			<a href="#" class="next-slide">Next Slide</a>
+		</div>
+</div>
+<script src="lemmon-slider-t.js"></script>
+
+	<script>
+	"use strict";
+
+	(function ($) {
+		$(document).ready(function() {
+
+			var $des = $('#slider3 li:first-child .dec').html();
+
+			// slider 3
+			$( '#slider3' ).lemmonSlider({
+				infinite: true
+			});
+
+			$(".des-inner").html($des).parent().fadeIn(500);
+
+			$('.prev-slide').on('click', function() {
+				switchSlideDes();
+			});
+
+			$('.next-slide').on('click', function() {
+				switchSlideDes();
+			});
+
+			var switchSlideDes = function() {
+			  $des = $('.active').find('.dec').html();
+				$(".des").fadeOut(200)
+			    .delay(100)
+			    .queue(function(n) {
+			        $(this).find('.des-inner').html($des);
+			        n();
+			    }).fadeIn(400);
+			}
+
+			console.log('OK');
+
+	  });
+	})(jQuery);
+
+	</script>
+
+
+</body>
+</html>

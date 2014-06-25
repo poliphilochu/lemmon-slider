@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+
+	<title>Carousel With Variable Elements Widths | Lemmon jQuery</title>
+
+	<meta name="generator" content="TextMate http://macromates.com/">
+	<meta name="author" content="Jakub Pelák">
+
+	<meta name="robots" content="index, follow">
+
+	<!--<script src="http://static.lemmonjuice.com/public/jquery/jquery-1.6.min.js"></script>-->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<style type="text/css" media="screen">
+	.wrap { width:640px; margin:20px; background:#ffc; }
+	body div.slider    { overflow:hidden; position:relative; width:100%; height:370px !important; }
+	body div.slider ul { margin:0; padding:0; height:370px; }
+	body div.slider li { float:left; list-style:none; margin:0 5px 0 0; }
+	body div.slider li { text-align:center; line-height:370px; font-size:25px; }
+	body div.slider li { background: #555; color: #fff; width: 335px; }
+	body div.slider .active { background: #ffcccc; }
+	.des-wrapper {
+		width: 960px;
+		margin: 0 auto;
+		height: 150px;
+		background: #fff;
+		padding: 50px;
+	}
+	.des-inner {
+		display: none;
+	}
+	.des {
+		padding: 25px;
+		background: #f2f2f2;
+	}
+	</style>
+</head>
+
+<body>
+<p id="products">Hello</p>
+	<script>
+	(function ($) {
+		$(document).ready(function() {
+			var $test = 'te124';
+$("#products").fadeOut(500)
+    .delay(600)
+    .queue(function(n) {
+        $(this).html($test);
+        n();
+    }).fadeIn(500);
+
+			console.log('OK');
+
+	  });
+	})(jQuery);
+
+	</script>
+
+
+</body>
+</html>
